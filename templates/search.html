@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">O'zingizni qiziqtirgan savollaringiz bilan murojaat qilishingiz mumkin</span>
+          <h1 class="text-capitalize mb-5 text-lg">Qidiruv tizimi</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+
+
+    <h1 class="mt-5">Savollaringizni shu yerga kiriting</h1>
+    <div class="search_form mb-5" style="padding: 20px; border: 1px solid darkgrey; box-shadow: 2px 2px 2px 2px darkgrey">
+
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="question" cols="100" rows="5" placeholder="Type your question here..." required id="question">
+</textarea>
+        <br/>
+        <button class="btn btn-primary" type="submit" style="padding: 5px 10px; border-radius: 10px; margin: 5px">Submit</button>
+    </form>
+
+   {% if error_message %}
+    <h2>Error:</h2>
+    <p>{{ error_message }}</p>
+{% endif %}
+
+{% if question %}
+        <h4>Savolingiz:</h4>
+        <p>{{ question }}</p>
+        <h4>Javob:</h4>
+        <p id="answer">{{ answer }}</p>  <!-- Javobni ko'rsatish -->
+    {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

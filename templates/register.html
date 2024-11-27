@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+</head>
+<body>
+<h1>Ro'yxatdan o'tish</h1>
+<form id="registerForm" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+        <small id="usernameError" style="color: red; display: none;">Bo'sh joyni to'ldiring</small>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <small id="passwordError" style="color: red; display: none;">Bo'sh joyni to'ldiring</small>
+    </div>
+    <button type="submit" id="submitButton">Ro'yxatdan o'tish</button>
+</form>
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="text" name="username" placeholder="Username">-->
+<!--    <input type="password" name="password" placeholder="Password">-->
+<!--    <button type="submit">Ro'yxatdan o'tish</button>-->
+<!--</form>-->
+<p>Oldin ro'yxatdan o'tganmisiz? <a href="{% url 'login' %}">Kirish</a>.</p>
+
+</body>
+</html>

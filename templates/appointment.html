@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+ <div class="container">
+
+<!--     <h1>Adminga xabar yuborish</h1>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <textarea name="message" rows="5" cols="40" placeholder="Xabar yozing"></textarea>-->
+<!--    <button type="submit">Yuborish</button>-->
+<!--</form>-->
+<!--<a href="{% url 'logout' %}">Chiqish</a>-->
+
+     <h1>Uchrashuv belgilash</h1>
+     <h1>Salom, {% if user.is_authenticated %} {{ user.username }} {% else %} Mehmon {% endif %}!</h1>
+     <div class="forma">
+   {% if user.is_authenticated %}
+     <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name">F.I.SH:</label>
+        {{ form.name }}
+        {% if form.name.errors %}
+            <div class="text-danger">{{ form.name.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_phone">Telefon:</label>
+        {{ form.phone }}
+        {% if form.phone.errors %}
+            <div class="text-danger">{{ form.phone.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_type_of_disease">Kasallik turi:</label>
+        {{ form.type_of_disease }}
+        {% if form.type_of_disease.errors %}
+            <div class="text-danger">{{ form.type_of_disease.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_type_of_doctor">Doktor mutaxassisligi:</label>
+        {{ form.type_of_doctor }}
+        {% if form.type_of_doctor.errors %}
+            <div class="text-danger">{{ form.type_of_doctor.errors }}</div>
+        {% endif %}
+    </div>
+<h2>Savolingizni yuboring</h2>
+    <div class="form-group">
+        <label for="id_message">Xabar:</label>
+        {{ form.message }}
+    </div>
+<button type="submit">Xabar yuborish</button>
+
+
+</form>
+
+    {% else %}
+        <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}">Tizimga kirish</a></p>
+    {% endif %}
+
+    <a href="{% url 'login' %}">Kirish</a> | <a href="{% url 'logout' %}">Chiqish</a>
+
+
+ {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+     </div>
+ </div>
+{% endblock %}

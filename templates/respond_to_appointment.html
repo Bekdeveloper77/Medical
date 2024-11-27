@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- templates/respond_to_appointment.html -->
+
+<h2>{{appointment.name}}</h2>
+{{appointment.message}}
+<h2>So'rovga javob berish</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Javob yuborish</button>
+</form>
+
+</body>
+</html>

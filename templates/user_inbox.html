@@ -1,0 +1,33 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foydalanuvchi So'rovlari</title>
+</head>
+<body>
+<h2>Sizning So'rovlaringiz va Javoblar</h2>
+{{appointment.name}}
+
+ {% if appointments %}
+        <ul>
+    {% for appointment in appointments %}
+        <li>
+            <strong>F.I.SH:</strong> {{ appointment.name }}<br>
+            <strong>Telefon:</strong> {{ appointment.phone }}<br>
+            <strong>Kasallik turi:</strong> {{ appointment.type_of_disease }}<br>
+            <strong>Tanlagan shifokori:</strong> {{ appointment.type_of_doctor }}<br>
+            <strong>Sanasi:</strong> {{ appointment.date }}<br>
+            <strong>Murojaat qilingan savol:</strong> {{ appointment.message }}<br>
+            <strong>Admin javobi:</strong> {{ appointment.admin_message|default:"Hozircha javob yo'q" }}
+        </li>
+    <br>
+    {% empty %}
+        <li>Hozircha so'rov yo'q.</li>
+    {% endfor %}
+</ul>
+    {% else %}
+        <p>Sizda hech qanday savol yo'q.</p>
+    {% endif %}
+
+</body>
+</html>
