@@ -12,10 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
-from decouple import config
+from decouple import config as decouple_config
 
-# OpenAI API kalitini yuklash
-OPENAI_API_KEY = config('OPENAI_API_KEY')
+# Get SECRET_KEY from .env file
+SECRET_KEY = decouple_config('SECRET_KEY')
+# OpenAI API kalitni yuklash
+OPENAI_API_KEY = decouple_config('OPENAI_API_KEY')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
