@@ -1,2 +1,1 @@
-web:  gunicorn 'config.wsgi:testexam'
-gunicorn main:app
+web: gunicorn config.wsgi --log-file -
