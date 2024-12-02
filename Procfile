@@ -1,3 +1,3 @@
-gunicorn config.wsgi:djangoexam
+gunicorn config.wsgi:application
 
 
