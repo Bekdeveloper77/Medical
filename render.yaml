@@ -4,10 +4,10 @@ services:
     env: python
     region: oregon
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn config.wsgi:testexam"
+    startCommand: "gunicorn config.wsgi:djangoexam"
     autoDeploy: true
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: config.settings
       - key: PYTHON_VERSION
-        value: "3.11"
+        value: "3.11.6"
